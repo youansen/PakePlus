@@ -1,0 +1,137 @@
+<!-- 此代码属于PFstudio免费开源代码，由B站一百10000000制作，此注释不会显示在页面中。 -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 将title的内容修改为你作品的名字 -->
+    <title>末日孤城0.2.5更新丧尸波数</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .info h1 {
+            font-size: 24px;
+            margin: 0;
+            color: #333;
+        }
+        .info p {
+            font-size: 14px;
+            margin: 5px 0 0;
+            color: #666;
+        }
+
+        iframe {
+            width: 480px; /* 宽度为480像素，如果你在turbowarp或其他软件中修改了宽度，请将480px替换为作品宽度 */
+            height: 360px; /* 高度为360像素，如果你在turbowarp或其他软件中修改了高度，请将480px替换为作品高度 */
+            border: 2px solid transparent; 
+            border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+            margin-bottom: 20px; 
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, border-radius 0.3s ease; 
+        }
+
+        iframe:hover {
+            border-color: gold; 
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); 
+        }
+
+        iframe.no-radius {
+            border-radius: 0; 
+        }
+
+        .checkbox-container {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .checkbox-container label {
+            margin-left: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 10px; 
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- 修改h1和p标题和作者信息 -->
+    <div class="info">
+        <h1>末日孤城0.2.5更新丧尸波数</h1>
+        <p>作者: 幽暗森</p>
+    </div>
+
+    <div class="checkbox-container">
+        <input type="checkbox" id="square-checkbox" onchange="toggleIframeRadius()">
+        <label for="square-checkbox">正方形iframe</label>
+    </div>
+
+    <!-- 把src=中的https://pfstu.github.io/替换为你作品的网页，一定要加https://或http:// -->
+    <iframe id="pixel-iframe" src="https://youansen.github.io/scratch/"></iframe>
+
+    <!-- 重新加载按钮，不需要请删除 -->
+    <button onclick="reloadIframe()">重新加载</button>
+
+    <!-- iframe全屏按钮，不需要请删除 -->
+    <button onclick="fullscreenIframe()">iframe全屏</button>
+
+	    <!-- 为作品添加注释，用<br>换行。不需要请删除 -->
+	<p>标注第一段<br>标注第二段<p>
+    <script>
+        // JavaScript函数：重新加载iframe
+        function reloadIframe() {
+            const iframe = document.getElementById('pixel-iframe');
+            iframe.src = iframe.src; // 重新设置src以刷新iframe
+        }
+
+        // JavaScript函数：iframe全屏
+        function fullscreenIframe() {
+            const iframe = document.getElementById('pixel-iframe');
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen(); // 标准方法
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        }
+
+        function toggleIframeRadius() {
+            const iframe = document.getElementById('pixel-iframe');
+            const checkbox = document.getElementById('square-checkbox');
+            if (checkbox.checked) {
+                iframe.classList.add('no-radius'); 
+            } else {
+                iframe.classList.remove('no-radius'); 
+            }
+        }
+    </script>
+</body>
+</html>
